@@ -44,35 +44,26 @@ function playRound(playerSelection, computerSelection) {
         return "You Win! Scissors beats Paper"
     }
 }
-function game()
+function game(plchoice)
 {
-    playerWins = 0
-    computerWins = 0
-    while(playerWins != 5 && computerWins != 5)
-    {
-        let playerChoice = prompt("rock, paper, or scissors?")
-        playerChoice = playerChoice.toLowerCase()
-        computerChoice = getComputerChoice()
-        result = playRound(playerChoice, computerChoice)
-        if(result.includes("Win"))
-        {
-            playerWins = playerWins + 1
-        }
-        else if(result.includes("Lose"))
-        {
-            computerWins = computerWins + 1
-        }
-        console.log(result)
-    }
-    if(playerWins == 5)
-    {
-        console.log("Congratulations! You Won!")
-    }
-    else
-    {
-        console.log("Sorry. You Lost.")
-    }
+    
+    playerChoice = plchoice
+    computerChoice = getComputerChoice()
+    result = playRound(playerChoice, computerChoice)
+    resultBox = document.querySelector('.result')
+    resultBox.textContent = result
+
     
 }
-console.log("hi")
-game()
+function playScissors()
+{
+    game("scissors")
+}
+function playPaper()
+{
+    game("paper")
+}
+function playRock()
+{
+    game("rock")
+}
